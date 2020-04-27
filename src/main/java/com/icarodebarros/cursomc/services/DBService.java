@@ -249,7 +249,188 @@ public class DBService {
 		p2.getItens().addAll(Arrays.asList(ip3));
 		p3.getItens().addAll(Arrays.asList(ip2));
 		
-		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));		
+		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));
+		
+		/*
+			**** BASE DE DADOS H2 GERADA: ****
+			
+			SELECT * FROM CATEGORIA;
+			ID  	NOME  
+			1	Informática
+			2	Escritório
+			3	Cama mesa e banho
+			4	Eletrônicos
+			5	Jardinagem
+			6	Decoração
+			7	Perfumaria
+			
+			SELECT * FROM CIDADE;
+			ID  	NOME  	ESTADO_ID  
+			1	Uberlândia	1
+			2	São Paulo	2
+			3	Campinas	2
+			
+			SELECT * FROM CLIENTE;
+			ID  	CPF_OU_CNPJ  	EMAIL  	NOME  	SENHA  	TIPO  
+			1	36378912377	icarodebarros@bol.com.br	Maria Silva	$2a$10$DIltSiodRMD4zP8CjFpN9eRcMgLxnn/sAIBXoQioXY9DWlUyg2cLS	1
+			2	31628382740	icaro_n_b@msn.com	Ana Costa	$2a$10$/XhtZAGOGsv3KGscmveZouaYQVQR8lMhoM5crIyta6hqaJ5J9Ytei	1
+			
+			SELECT * FROM ENDERECO;
+			ID  	BAIRRO  	CEP  	COMPLEMENTO  	LOGRADOURO  	NUMERO  	CIDADE_ID  	CLIENTE_ID  
+			1	Jardim	38220834	Apto 303	Rua Flores	300	1	1
+			2	Centro	38777012	Sala 800	Avenida Matos	105	2	1
+			3	Centro	281777012	null	Avenida Floriano	2106	2	2
+			
+			SELECT * FROM ESTADO;
+			ID  	NOME  
+			1	Minas Gerais
+			2	São Paulo
+			
+			SELECT * FROM ITEM_PEDIDO;
+			DESCONTO  	PRECO  	QUANTIDADE  	PEDIDO_ID  	PRODUTO_ID  
+			0.0	2000.0	1	1	1
+			0.0	80.0	2	1	3
+			100.0	800.0	1	2	2
+			
+			SELECT * FROM PAGAMENTO;
+			PEDIDO_ID  	ESTADO  
+			1	2
+			2	1
+			
+			SELECT * FROM PAGAMENTO_COM_BOLETO;
+			DATA_PAGAMENTO  	DATA_VENCIMENTO  	PEDIDO_ID  
+			null	2017-10-20 00:00:00	2
+			
+			SELECT * FROM PAGAMENTO_COM_CARTAO;
+			NUMERO_DE_PARCELAS  	PEDIDO_ID  
+			6	1
+			
+			SELECT * FROM PEDIDO;
+			ID  	INSTANTE  	CLIENTE_ID  	ENDERECO_DE_ENTREGA_ID  
+			1	2017-09-30 10:32:00	1	1
+			2	2017-10-10 19:35:00	1	2
+			
+			SELECT * FROM PERFIS;
+			CLIENTE_ID  	PERFIS  
+			1	2
+			2	1
+			2	2
+			
+			SELECT * FROM PRODUTO;
+			ID  	NOME  	PRECO  
+			1	Computador	2000.0
+			2	Impressora	800.0
+			3	Mouse	80.0
+			4	Mesa de escritório	300.0
+			5	Toalha	50.0
+			6	Colcha	200.0
+			7	TV true color	1200.0
+			8	Roçadeira	800.0
+			9	Abajour	100.0
+			10	Pendente	180.0
+			11	Shampoo	90.0
+			12	Produto 12	10.0
+			13	Produto 13	10.0
+			14	Produto 14	10.0
+			15	Produto 15	10.0
+			16	Produto 16	10.0
+			17	Produto 17	10.0
+			18	Produto 18	10.0
+			19	Produto 19	10.0
+			20	Produto 20	10.0
+			21	Produto 21	10.0
+			22	Produto 22	10.0
+			23	Produto 23	10.0
+			24	Produto 24	10.0
+			25	Produto 25	10.0
+			26	Produto 26	10.0
+			27	Produto 27	10.0
+			28	Produto 28	10.0
+			29	Produto 29	10.0
+			30	Produto 30	10.0
+			31	Produto 31	10.0
+			32	Produto 32	10.0
+			33	Produto 34	10.0
+			34	Produto 35	10.0
+			35	Produto 36	10.0
+			36	Produto 37	10.0
+			37	Produto 38	10.0
+			38	Produto 39	10.0
+			39	Produto 40	10.0
+			40	Produto 41	10.0
+			41	Produto 42	10.0
+			42	Produto 43	10.0
+			43	Produto 44	10.0
+			44	Produto 45	10.0
+			45	Produto 46	10.0
+			46	Produto 47	10.0
+			47	Produto 48	10.0
+			48	Produto 49	10.0
+			49	Produto 50	10.0
+			
+			SELECT * FROM PRODUTO_CATEGORIA;
+			PRODUTO_ID  	CATEGORIA_ID  
+			1	1
+			1	4
+			2	1
+			2	2
+			2	4
+			3	1
+			3	4
+			4	2
+			5	3
+			6	3
+			7	4
+			8	5
+			9	6
+			10	6
+			11	7
+			12	1
+			13	1
+			14	1
+			15	1
+			16	1
+			17	1
+			18	1
+			19	1
+			20	1
+			21	1
+			22	1
+			23	1
+			24	1
+			25	1
+			26	1
+			27	1
+			28	1
+			29	1
+			30	1
+			31	1
+			32	1
+			33	1
+			34	1
+			35	1
+			36	1
+			37	1
+			38	1
+			39	1
+			40	1
+			41	1
+			42	1
+			43	1
+			44	1
+			45	1
+			46	1
+			47	1
+			48	1
+			49	1
+			
+			SELECT * FROM TELEFONE;
+			CLIENTE_ID  	TELEFONES  
+			1	27363323
+			1	45834568
+			1	93838393
+			1	84261597
+		*/
 	}
 
 }
